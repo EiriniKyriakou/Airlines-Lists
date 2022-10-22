@@ -32,7 +32,7 @@ Makefile
 
     this will build the project and produce a file 'airlines' which is
     the program executable with which you can test your
-    project. i.e. './airlines testfile1.txt'.
+    project. i.e. './airlines Test_Files/testfile1.txt'.
 
     $ make clean
 
