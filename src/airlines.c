@@ -87,7 +87,7 @@ int register_airline(int aId) {
 
     }
 
-    /*Ektupwsh*/
+    /*Print*/
     _airlines_l *last = airlines_p;
     /*printf("R %d\n", aId,);*/
     printf("\tAirlines = %d", last->aId);
@@ -127,7 +127,7 @@ int insert_airplanes(int aId, int pId, int dest, int depart_time) {
         last = last->next;
     }
     if(last->aId == aId){
-        /*finds where to put airplane*/
+        /*Finds where to put airplane*/
         if (last->p_root == NULL){
             last->p_root = new_airplane;
             new_airplane->next = NULL;
@@ -147,7 +147,7 @@ int insert_airplanes(int aId, int pId, int dest, int depart_time) {
                 new_airplane->next = cur;
             }
         }
-        /*finds where to put it in dest table*/
+        /*Finds where to put it in dest table*/
         _flights_t *new_flight;
         new_flight = malloc(sizeof(_flights_t));
         new_flight->pId = pId;
@@ -375,10 +375,10 @@ int acquisition_airline(int aId1, int aId2) {
         aId2_airplane = aId2_airline->p_root;
         while (aId1_airplane != NULL ){
             if((aId1_airline->aId == aId1) && (aId2_airline->aId == aId2)){
-                if (aId2_airline->p_root == NULL){ /*case for airline2 is empty*/
+                if (aId2_airline->p_root == NULL){ /*Case for airline2 is empty*/
                     aId2_airline->p_root = aId1_airplane;
                     aId1_airline->p_root = NULL;
-                }else if(aId2_airplane == NULL){ /*end of airline2*/
+                }else if(aId2_airplane == NULL){ /*End of airline2*/
                     pr2->next = aId1_airplane;
                     aId1_airline->p_root = NULL;
                 }else if ((aId2_airplane->pId == aId2_airline->p_root->pId) && (aId1_airplane->pId < aId2_airplane->pId)){
@@ -454,7 +454,7 @@ int subsidiary_airiline(int aId1, int aId2, int dest){
         while (aId2_airline->aId != aId2 && (aId2_airline != airlines_p)){
             aId2_airline = aId2_airline->next;
         }
-        if((aId1_airline->aId == aId1) && (aId2_airline->aId == aId2)){ /*If I found it*/
+        if((aId1_airline->aId == aId1) && (aId2_airline->aId == aId2)){ /*If it was found*/
             _airplane *aId1_airplane = aId1_airline->p_root;
             _airplane *aId2_airplane = aId2_airline->p_root;
             _airplane *pr2 = aId2_airplane;
@@ -481,7 +481,7 @@ int subsidiary_airiline(int aId1, int aId2, int dest){
                             aId1_airplane = aId1_airline->p_root;
                             pr1 = aId1_airplane;
                         }
-                    }else { /*case for not in root1*/
+                    }else { /*Case for not in root1*/
                         if ((aId2_airline->p_root == NULL) || ((aId2_airplane->pId == aId2_airline->p_root->pId) && (aId1_airplane->pId < aId2_airplane->pId))){
                             /*Case for change in root2*/
                             aId2_airline->p_root = aId1_airplane;
@@ -489,7 +489,7 @@ int subsidiary_airiline(int aId1, int aId2, int dest){
                             aId1_airplane->next = pr2;
                             pr2 = aId2_airline->p_root;
                             aId1_airplane = pr1->next;
-                        }else{ /*case for not in root2*/
+                        }else{ /*Case for not in root2*/
                             while( (aId2_airplane != NULL) && (aId1_airplane->pId > aId2_airplane->pId)){
                                 pr2 = aId2_airplane;
                                 aId2_airplane = aId2_airplane->next;
@@ -523,7 +523,6 @@ int subsidiary_airiline(int aId1, int aId2, int dest){
  * @return 1 on success
  *         0 on failure
  */
-/*Etoimh*/
 int partition_airplanes(int aId1) {
     _airlines_l *airline = airlines_p;
     _airlines_l *prev_1 = NULL;
